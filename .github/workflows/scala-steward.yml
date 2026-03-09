@@ -9,6 +9,9 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - run: |
+          mkdir -p ~/.config/sbt
+          echo "--allow-empty" >> ~/.config/sbt/sbtopts
       - uses: scala-steward-org/scala-steward-action@v2
         with:
           cache-ttl: "0s"
